@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Container, Row, Col } from "react-bootstrap"
 import {AiFillStar} from 'react-icons/ai'
 import SearchComponent from '../componets/SearchComponent'
+import { Link } from 'react-router-dom'
 
 const MovieSearched = ({name}) => {
 
@@ -33,11 +34,13 @@ const MovieSearched = ({name}) => {
         <Row>
             {movieData && movieData.results.map((movie, i) =>(
                 <Col key={i} className='item' md={3}>
+                    <Link to={`/movieDetail/${movie.id}`}>
                     <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="poster" />
                     <h3 className='text-center'>{movie.original_title}</h3>
                     <div className="icon">
                         <h3><AiFillStar /> <span>{Math.floor(movie.vote_average)}</span></h3>
                     </div>
+                    </Link>
                 </Col>
             ))}
         </Row>
