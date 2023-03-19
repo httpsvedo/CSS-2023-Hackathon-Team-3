@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import MovieList from '../componets/MovieList'
 import AllMovies from '../componets/AllMovies'
+import SearchComponent from '../componets/SearchComponent'
 
-const Home = () => {
+const Home = ({handleBlackNavbar}) => {
     const [popular, setPopular] = useState()
     const [topRated, setTopRated] = useState()
     const [allMovies, setAllMovies] = useState()
@@ -33,9 +34,11 @@ const Home = () => {
         fetchPopularMovies()
         fetchTopMovies()
         fetchAllMovies()
+        handleBlackNavbar()
     }, [])
   return (
     <section id="home">
+        <SearchComponent />
         <MovieList data={popular} topRated={topRated} />
         <AllMovies allMovies={allMovies} />
     </section>

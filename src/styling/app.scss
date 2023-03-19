@@ -21,6 +21,43 @@ body{
             }
         }
     }
+    .navbar-brand{
+        h2{
+            color : #fff;
+        }
+    }
+    .navbar-nav{
+        a{
+            color: #fff;
+        }
+    }
+}
+#navbarWhite{
+    padding-top: 2rem;
+    z-index: 3;
+    #basic-navbar-nav{
+        justify-content: flex-end;
+        .navbar-nav{
+            gap: 3rem;
+            font-size: 22px;
+            a{
+                &:hover{
+                    color: $primary-color;
+                    transition: 0.3s;
+                }
+            }
+        }
+        .navbar-brand{
+            h2{
+                color : #000;
+            }
+        }
+        .navbar-nav{
+            a{
+                color: #000;
+            }
+        }
+    }
 }
 #popular{
     .movie-item{
@@ -46,6 +83,10 @@ body{
 #all-movies{
     .item{
         margin-bottom: 2rem;
+    }
+    .text{
+        font-size: 18px;
+         margin-top: 0.5rem;
     }
     img{
         border-radius: 20px;
@@ -98,5 +139,48 @@ body{
             color: #fff;
             font-weight: 400;
         }
+    }
+}
+#search{
+    .input-field{
+        position: relative;
+    }
+    input{
+        width: 100%;
+        margin-bottom: 3rem;
+        padding: 13px;
+        font-size: 20px;
+        outline: none;
+    }
+    .icon{
+        position: absolute;
+    right: 15px;
+    top: 8px;
+    font-size: 28px;
+    }
+}
+#searched{
+    .item{
+        margin-bottom: 3rem;
+        position: relative;
+        img{
+            border-radius: 18px;
+        }
+        .icon{
+            position: absolute;
+            bottom: 0px;
+            color: red;
+            font-size: 2rem;
+            border-radius: 10px;
+            h3{
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+    }
+    h3{
+        padding-top: 14px;
+        font-size: 26px;    
     }
 }

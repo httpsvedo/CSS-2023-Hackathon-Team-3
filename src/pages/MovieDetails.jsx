@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import { useParams } from 'react-router-dom'
 import {AiFillStar} from 'react-icons/ai'
 
-const MovieDetails = () => {
+const MovieDetails = (props) => {
     const [movieDetail, setMovieDetail] = useState()
     const params = useParams()
 
@@ -19,19 +19,20 @@ const MovieDetails = () => {
     }
 
     useEffect(() =>{
+        props.handleWhiteNavbar();
         fetchMovieDetail()
     }, [])
 
   return (
-    <section id="movie-details" >
+    <section id="movie-details">
         {movieDetail &&
         <>
         <div className="overlay2"></div>
-        <img className='background-photo' src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`} alt="" />
+        <img className='background-photo' src={`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`} alt="" /> 
         <Container>
             <Row>
                 <Col md={8} className='item'>
-                    <img src={`https://image.tmdb.org/t/p/original${movieDetail.poster_path}`} alt="" />
+                    <img src={`https://image.tmdb.org/t/p/original${movieDetail?.poster_path}`} alt="" /> 
                     <div className="info">
                     <h3><span className='icon'><AiFillStar /></span> <span>{movieDetail.vote_average.toFixed(1)}/10</span></h3> 
                     <h3>{movieDetail.release_date.split('-')[0]}</h3>

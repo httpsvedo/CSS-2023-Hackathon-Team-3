@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const AllMovies = ({allMovies}) => {
 
@@ -11,7 +12,10 @@ const AllMovies = ({allMovies}) => {
                 {allMovies && allMovies.results.map((movie, i) =>{
                     return(
                     <Col className="item" md={3} key ={i}>
-                    <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="movie" />
+                        <Link to={`/movieDetail/${movie.id}`}>
+                        <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt="movie" />
+                        <div className="text">{movie.original_title}</div>
+                        </Link>
                     </Col>
                     )
                 })}

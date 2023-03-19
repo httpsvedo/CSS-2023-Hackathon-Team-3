@@ -12,6 +12,8 @@ const MovieList = ({data, topRated}) => {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 3,
+        autoplay: true,
+        autoplaySpeed: 2000,
         responsive: [
             {
               breakpoint: 1024,
@@ -46,6 +48,8 @@ const MovieList = ({data, topRated}) => {
         speed: 500,
         slidesToShow: 2,
         slidesToScroll: 2,
+        autoplay: true,
+        autoplaySpeed: 5000,
         responsive: [
             {
               breakpoint: 1024,
@@ -95,9 +99,11 @@ const MovieList = ({data, topRated}) => {
     {topRated && topRated.results && <Slider {...settings}>
             {topRated.results.map((movie, i) =>(
                 <div key={i} className='movie-item'>
+                    <Link to={`/movieDetail/${movie.id}`}>
                     <div className="overlay"></div>
                    <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt="movie" />
                    <div className="text">{movie.original_title}</div>
+                    </Link>
                 </div>
             ))}
     </Slider>
